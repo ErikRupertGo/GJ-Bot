@@ -27,11 +27,14 @@ client:on('messageCreate', function(message)
 
 	local args = Split(message.content, " ")
 
+	-- Separates -createTeam into createTeam
 	if not string.find(args[1], commands.prefix.currentPrefix) then return end
     local cmd = string.sub(args[1], #commands.prefix.currentPrefix + 1)
 
+	-- Checks of the command is available in the table or not
 	if commands[cmd] == nil then return end
 
+	-- Runs the exec function using the protected call, so it won't crash the bot on runtime errors
 	local status, error = pcall(commands[cmd].exec, commands[cmd], message, message.content)
 	if status == false then message:reply("```"..error.."```") end
 

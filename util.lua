@@ -1,7 +1,3 @@
-local json = require('/deps/json')
---local fs = require('/deps/fs')
-
---Ripped off from https://www.codegrepper.com/code-examples/lua/lua+split+string+into+table
 function Split(s, delimiter)
     local result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
@@ -28,16 +24,4 @@ function replyToMessage(message, content)
         }
     }
     
-end
-
-local gorgonzola
-
-function updateJSON(object)
-   
-    fs.writeFileSync("data.json", json.encode(guildCollection))
-end
-
-function getJSONObject()
-
-    return json.decode(fs.readFileSync("mrpoopybutthole.json"))
 end

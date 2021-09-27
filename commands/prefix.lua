@@ -3,7 +3,7 @@ local prefix = {}
 prefix.name = "prefix"
 prefix.description = [[Changes the prefix of the bot]]
 prefix.tag = "General"
-prefix.currentPrefix = "-"
+prefix.currentPrefix = "."
 function prefix:exec(message)
     if not message.member:hasPermission(commands.enums.permission.manageGuild) then return end
     local args = Split(message.content, " ")

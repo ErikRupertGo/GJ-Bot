@@ -93,7 +93,7 @@ To use this command type `-createTeam "Team Name" @Someone`
 Where as words inside the quotation marks will be the team name and the mentioned users will be the members.
 You can add multiple members by mentioning more users.
 
-Additionally, you can make a solo team by not mentioning a user e.g. `-createTeam "Team Name`
+Additionally, you can make a solo team by not mentioning a user e.g. `-createTeam "Team Name"`
 
 ## invite
 
@@ -104,3 +104,11 @@ Usage of the command is `-invite @Someone @AnotherOne`
 whereas all the mentioned users will be given the role of your team, and be invited to the category.
 
 Mentioning no one will prompt the message author that they did not mention anyone
+
+## removeTeam
+
+The opposite of createTeam. This command like `prefix` requires the manage guild permission.
+
+To use it simply tag the team roles in the message. You can also put multiple teams to delete in bulk
+
+Example: -removeTeam @Team1 @Team2

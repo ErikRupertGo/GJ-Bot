@@ -16,7 +16,6 @@ io.close(tokenFile)
 math.randomseed(os.time())
 
 client:on('ready', function()
-	commands.lua.extra.client = client
 	print("Bot is now online!")
 end)
 
@@ -41,4 +40,3 @@ client:on('messageCreate', function(message)
 end)
 
 client:run("Bot "..token)
-

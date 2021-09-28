@@ -17,6 +17,9 @@ function createTeam:exec(message)
     local role = message.guild:createRole(teamName)
     table.insert(self.teams, role.id)
 
+    -- Hoist
+    role:hoist()
+
     -- Moves it up from verified role and solo jammer
     role:moveUp(1)
 

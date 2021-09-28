@@ -23,14 +23,8 @@ lua.description = "Executes lua script"
 lua.tag = "Power"
 lua.parse = function(message)
 
-    --print(type(message))
     local script = nil
-    -- string.gsub(message, prefix..lua.name.." ```", script)
     script = string.sub(message, #commands.prefix.currentPrefix + 8, #message - 3)
-    --string.gsub(script, "```", script)
-
-    --message:reply(script)
-    --print(script)
     return script
 
 end
@@ -75,9 +69,5 @@ lua.exec = function(self, message, content)
     return replyToMessage(message, codeBlock(lines))
 
 end
-
-lua.extra = {}
-lua.extra.client = nil;
-lua.extra.protectMe = false
 
 return lua

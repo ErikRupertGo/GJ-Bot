@@ -4,11 +4,20 @@ createTeam.teams = {}
 
 function createTeam:exec(message)
     local teamName = string.match(message.content, '\".+\"')
-    teamName = string.sub(teamName, 2, #teamName - 1)
 
     if not teamName then 
         replyToMessage(message, "Please put double quotes in your team name")
         return
+    end
+
+    teamName = string.sub(teamName, 2, #teamName - 1)
+
+    -- Checks if member has a team already
+    for k, v in pairs(self.teams) do
+        if message.member:hasRole(v) then
+            replyToMessage(message, "You already have a team");
+            return;
+        end
     end
 
     replyToMessage(message, "Please wait for a few moments while I create your channels")

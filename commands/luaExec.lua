@@ -32,7 +32,6 @@ end
 local codeBlock = function(message) return string.format("```\n%s```", message) end
 
 lua.exec = function(self, message, content)
-    lua.extra.client = message.client
     local code = lua.parse(message.content)
 
     if not code then

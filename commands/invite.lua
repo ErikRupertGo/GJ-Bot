@@ -10,7 +10,7 @@ function invite:exec(message)
     local roleId = nil
     -- Checks if the message author is in a team
     for k, v in pairs(commands.createTeam.teams) do
-        if message.member:hasRole(v) then
+        if message.member:hasRole(k) then
             roleId = v
             break;
         end

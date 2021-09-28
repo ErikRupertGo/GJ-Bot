@@ -29,5 +29,6 @@ commands.lua = require("/commands/luaExec")
 
 commands.createTeam = require("/commands/createTeam")
 commands.invite = require("/commands/invite")
+commands.removeTeam = require("/commands/removeTeam")
 
 return commands

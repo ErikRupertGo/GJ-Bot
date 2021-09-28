@@ -14,7 +14,7 @@ function createTeam:exec(message)
 
     -- Checks if member has a team already
     for k, v in pairs(self.teams) do
-        if message.member:hasRole(v) then
+        if message.member:hasRole(k) then
             replyToMessage(message, "You already have a team");
             return;
         end
@@ -22,18 +22,22 @@ function createTeam:exec(message)
 
     replyToMessage(message, "Please wait for a few moments while I create your channels")
 
-    -- Creating a role then adding it to teams array
+    -- Creating a role and adding an array for the role (array inside of array)
     local role = message.guild:createRole(teamName)
-    table.insert(self.teams, role.id)
+    self.teams[role.id] = {}
 
     -- Hoist
     role:hoist()
+    role:enableMentioning()
 
     -- Moves it up from verified role and solo jammer
     role:moveUp(1)
 
     -- Creating Category
     local category = message.guild:createCategory(teamName)
+    
+    -- Stores it in respective array
+    self.teams[role.id].category = category.id
     
     -- Perms
     local permsOverwrite = nil
@@ -60,8 +64,9 @@ function createTeam:exec(message)
                                     )
 
     -- Channel Creation
-    category:createTextChannel("team-chat")
-    category:createVoiceChannel("Team Voice")
+    local textChannel = category:createTextChannel("team-chat")
+    local voiceChannel = category:createVoiceChannel("Team Voice")
+
 
     -- Adds the team role to the author and the mentioned users
     message.member:addRole(role)

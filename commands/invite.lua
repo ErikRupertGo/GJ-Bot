@@ -11,12 +11,12 @@ function invite:exec(message)
     -- Checks if the message author is in a team
     for k, v in pairs(commands.createTeam.teams) do
         if message.member:hasRole(k) then
-            roleId = v
+            roleId = k
             break;
         end
     end
 
-    if roleId == nil then replyToMessage(message, "You don't have a team") return end
+    if not roleId  then replyToMessage(message, "You don't have a team") return end
 
     -- Adds the team role to the mentioned users
     message.mentionedUsers:forEach(function(user)

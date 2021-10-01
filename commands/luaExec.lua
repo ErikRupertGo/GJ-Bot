@@ -39,7 +39,7 @@ lua.exec = function(self, message, content)
         return
     end
     if message.author ~= message.client.owner then
-        message:reply("You are not the bot owner. so fuck off")
+        message:reply("Only the bot owner can use this command")
         return
     end
 
@@ -52,7 +52,7 @@ lua.exec = function(self, message, content)
     end
 
     -- Syntax errors
-    local fn, syntaxError = load(code, 'FG Lua', 't', sandbox) -- load the code
+    local fn, syntaxError = load(code, 'GJ+ Lua', 't', sandbox) -- load the code
     if not fn then return message:reply(codeBlock(syntaxError)) end -- handle syntax errors
 
     -- Runtime errors

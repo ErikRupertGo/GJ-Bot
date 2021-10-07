@@ -24,7 +24,7 @@ By now, there should be luvit.exe, luvi.exe, and lit.exe in your directory.
 Luvit is just the runtime for the Bot. To use the Discord API, you need to have a wrapper for it. The library that I chose for my bot is Discordia by SinisterRectus.
 
 On the command prompt of the directory, 
-Type: lit install `SinisterRectus/discordia`. Not that `discordia` is in lowercase, that's because of the package handling of lit.
+Type: `lit install SinisterRectus/discordia`. Note that `discordia` is in lowercase, that's because of the package handling of lit.
 
 ## Downloading the code
 Once you installed Discordia, it's time for you to clone the repository to the directory or to download the repo.
@@ -111,4 +111,4 @@ The opposite of createTeam. This command like `prefix` requires the manage guild
 
 To use it simply tag the team roles in the message. You can also put multiple teams to delete in bulk
 
-Example: -removeTeam @Team1 @Team2
+Example: `-removeTeam @Team1 @Team2`
